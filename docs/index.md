@@ -1,20 +1,25 @@
 ---
 layout: page
-title: AddressBook Level-3
+title: SociaLite - Contact Manager App
 ---
 
-[![CI Status](https://github.com/AY2122S1-CS2103T-F11-4/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2122S1-CS2103T-F11-4/tp/actions)
+![Ui](images/1200x800.png)
+(Ui pic to be added above)
 
-[![codecov](https://codecov.io/gh/AY2122S1-CS2103T-F11-4/tp/branch/master/graph/badge.svg?token=KPARXU5FYH)](https://codecov.io/gh/AY2122S1-CS2103T-F11-4/tp)
+##SociaLite - Contact Manager App
 
-![Ui](images/Ui.png)
+**SociaLite is a desktop application for managing your contact details.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
 
-**AddressBook is a desktop application for managing your contact details.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
+Some features include: ...
 
-* If you are interested in using AddressBook, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
-* If you are interested about developing AddressBook, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
+* If you are interested in using Socialite, head over to the **User Guide** (link to be added).
+* If you are interested about developing Socialite, the Developer Guide is a good place to start (link to be added).
 
 
-**Acknowledgements**
+###About Us
+Profile Pics and names of team members to be inserted here
 
-* Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
+
+###Acknowledgements
+
+Insert libraries and other sources used here
