@@ -14,10 +14,10 @@ public class PersonCardTest extends GuiUnitTest {
     @Test
     public void equals() {
         Person person = new PersonBuilder().build();
-        PersonCard personCard = new PersonCard(person, 0);
+        PersonCard personCard = new PersonCard(null, person, 0);
 
         // same person, same index -> returns true
-        PersonCard copy = new PersonCard(person, 0);
+        PersonCard copy = new PersonCard(null, person, 0);
         assertTrue(personCard.equals(copy));
 
         // same object -> returns true
@@ -31,10 +31,10 @@ public class PersonCardTest extends GuiUnitTest {
 
         // different person, same index -> returns false
         Person differentPerson = new PersonBuilder().withName("differentName").build();
-        assertFalse(personCard.equals(new PersonCard(differentPerson, 0)));
+        assertFalse(personCard.equals(new PersonCard(null, differentPerson, 0)));
 
         // same person, different index -> returns false
-        assertFalse(personCard.equals(new PersonCard(person, 1)));
+        assertFalse(personCard.equals(new PersonCard(null, person, 1)));
     }
 
 

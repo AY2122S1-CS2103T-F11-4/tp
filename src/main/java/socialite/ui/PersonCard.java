@@ -47,6 +47,8 @@ public class PersonCard extends UiPart<Region> {
      */
 
     public final Person person;
+    private final CommandExecutor commandExecutor;
+    private final int displayedIndex;
 
     @FXML
     private HBox cardPane;
@@ -103,11 +105,13 @@ public class PersonCard extends UiPart<Region> {
 
 
     /**
-     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
+     * Creates a {@code PersonCode} with the given {@code CommandExecutor}, given {@code Person} and index to display.
      */
-    public PersonCard(Person person, int displayedIndex) {
+    public PersonCard(CommandExecutor commandExecutor, Person person, int displayedIndex) {
         super(FXML);
+        this.commandExecutor = commandExecutor;
         this.person = person;
+        this.displayedIndex = displayedIndex;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
