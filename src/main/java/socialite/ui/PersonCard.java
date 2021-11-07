@@ -15,15 +15,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.Clipboard;
-import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Circle;
-import socialite.logic.commands.PinCommand;
-import socialite.logic.commands.ShareCommand;
-import socialite.logic.commands.UnpinCommand;
+import socialite.logic.commands.exceptions.CommandException;
+import socialite.logic.parser.exceptions.ParseException;
 import socialite.model.handle.Handle;
 import socialite.model.handle.Handle.Platform;
 import socialite.model.person.Date;
@@ -301,28 +298,18 @@ public class PersonCard extends UiPart<Region> {
     }
 
     @FXML
-    private void handlePinButtonAction() {
+    private void handlePinButtonAction() throws CommandException, ParseException {
         MainWindow mainWindow = MainWindow.getWindow();
         if (person.isPinned()) {
-            person.unpin();
-            mainWindow.setFeedbackToUser(String.format(UnpinCommand.MESSAGE_UNPIN_PERSON_SUCCESS, person));
+            commandExecutor.execute("unpin " + displayedIndex);
         } else {
-            person.pin();
-            mainWindow.setFeedbackToUser(String.format(PinCommand.MESSAGE_PIN_PERSON_SUCCESS, person));
+            commandExecutor.execute("pin " + displayedIndex);
         }
-        mainWindow.showFullPersonList();
     }
 
     @FXML
-    private void handleShareButtonAction() {
-        Clipboard clipboard = Clipboard.getSystemClipboard();
-        ClipboardContent content = new ClipboardContent();
-        String shareInfo = person.toSharingString();
-        content.putString(shareInfo);
-        clipboard.setContent(content);
-
-        // Show the copied info in result display
-        MainWindow.getWindow().setFeedbackToUser(String.format(ShareCommand.MESSAGE_SHARE_PERSON_SUCCESS, shareInfo));
+    private void handleShareButtonAction() throws CommandException, ParseException {
+        commandExecutor.execute("share " + displayedIndex);
 
         shareButton.setText("Copied!");
 
