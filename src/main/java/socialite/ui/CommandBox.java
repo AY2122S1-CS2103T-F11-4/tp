@@ -8,8 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
-import socialite.logic.Logic;
-import socialite.logic.commands.CommandResult;
 import socialite.logic.commands.exceptions.CommandException;
 import socialite.logic.parser.exceptions.ParseException;
 import socialite.model.ReadOnlyCommandHistory;
@@ -115,18 +113,4 @@ public class CommandBox extends UiPart<Region> {
 
         styleClass.add(ERROR_STYLE_CLASS);
     }
-
-    /**
-     * Represents a function that can execute commands.
-     */
-    @FunctionalInterface
-    public interface CommandExecutor {
-        /**
-         * Executes the command and returns the result.
-         *
-         * @see Logic#execute(String)
-         */
-        CommandResult execute(String commandText) throws CommandException, ParseException;
-    }
-
 }
